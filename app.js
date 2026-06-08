@@ -155,29 +155,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-  // 3. Memory Wall / Mural de Lembranças
-  const initialMessages = [];
+  // 3. Supabase Memory Wall / Mural de Lembranças
+  const SUPABASE_URL = 'https://wkkpcsdqcibggjxwpmne.supabase.co';
+  const SUPABASE_ANON_KEY = 'sb_publishable_yJZ3sb38tDvGye8mrIFcKQ_V5RK8PJi';
+  const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
   const muralWall = document.getElementById('mural-wall');
   const messageForm = document.getElementById('message-form');
-
-  // Load messages from localStorage or use defaults (V5 key to clear previous memorial cache)
-  function getMessages() {
-    const stored = localStorage.getItem('angelo_tribute_messages_v5');
-    if (stored) {
-      return JSON.parse(stored);
-    } else {
-      localStorage.setItem('angelo_tribute_messages_v5', JSON.stringify(initialMessages));
-      return initialMessages;
-    }
-  }
-
-  // Save a new message
-  function saveMessage(message) {
-    const messages = getMessages();
-    messages.unshift(message); // Put new message at the start
-    localStorage.setItem('angelo_tribute_messages_v5', JSON.stringify(messages));
-  }
 
   // Create HTML for a single message card
   function createMessageCard(message) {
@@ -210,6 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Helper to escape HTML tags
   function escapeHTML(str) {
+    if (!str) return '';
     return str.replace(/[&<>'"]/g, 
       tag => ({
         '&': '&amp;',
@@ -221,27 +206,53 @@ document.addEventListener('DOMContentLoaded', () => {
     );
   }
 
-  // Render all messages
-  function renderMessages() {
+  // Load messages from Supabase
+  async function loadMessages() {
+    if (!muralWall) return;
+    
+    muralWall.innerHTML = '<div style="text-align:center; padding: 20px;"><i class="fa-solid fa-spinner fa-spin"></i> A carregar mensagens...</div>';
+    
+    const { data, error } = await supabaseClient
+      .from('messages')
+      .select('*')
+      .order('created_at', { ascending: false });
+      
     muralWall.innerHTML = '';
-    const messages = getMessages();
-    messages.forEach(msg => {
-      const card = createMessageCard(msg);
-      muralWall.appendChild(card);
-    });
+    
+    if (error) {
+      console.error('Error fetching messages:', error);
+      muralWall.innerHTML = '<p style="text-align:center; color:red;">Erro ao carregar o mural. Verifique se configurou a base de dados.</p>';
+      return;
+    }
+    
+    if (data && data.length > 0) {
+      data.forEach(msg => {
+        const card = createMessageCard(msg);
+        muralWall.appendChild(card);
+      });
+    } else {
+      muralWall.innerHTML = '<p style="text-align:center; opacity:0.7;">Ainda não há mensagens. Seja o primeiro a deixar uma lembrança!</p>';
+    }
   }
 
   // Handle Form Submission
   if (messageForm) {
-    messageForm.addEventListener('submit', (e) => {
+    messageForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       
+      const submitBtn = document.getElementById('btn-submit-message');
+      const originalBtnHtml = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> &nbsp;A enviar...';
+      submitBtn.disabled = true;
+
       const nameInput = document.getElementById('form-name');
       const relationInput = document.getElementById('form-relationship');
       const messageInput = document.getElementById('form-message');
 
       if (!nameInput.value.trim() || !messageInput.value.trim()) {
         alert("Por favor, preencha o seu nome e a sua mensagem.");
+        submitBtn.innerHTML = originalBtnHtml;
+        submitBtn.disabled = false;
         return;
       }
 
@@ -250,29 +261,48 @@ document.addEventListener('DOMContentLoaded', () => {
       const formattedDate = currentDate.toLocaleDateString('pt-PT', options);
 
       const newMessage = {
-        id: Date.now(),
         name: nameInput.value.trim(),
         relationship: relationInput.value.trim() || "Aluno/Amigo",
         date: formattedDate,
         text: messageInput.value.trim()
       };
 
-      saveMessage(newMessage);
+      // Save to Supabase
+      const { error } = await supabaseClient
+        .from('messages')
+        .insert([newMessage]);
+        
+      if (error) {
+        console.error('Error inserting message:', error);
+        alert('Houve um erro ao guardar a sua mensagem na base de dados. Tente novamente.');
+        submitBtn.innerHTML = originalBtnHtml;
+        submitBtn.disabled = false;
+        return;
+      }
       
       // Render at the top with animation
       const card = createMessageCard(newMessage);
       muralWall.insertBefore(card, muralWall.firstChild);
+      
+      // Remove empty state message if it exists
+      const emptyState = muralWall.querySelector('p');
+      if (emptyState && emptyState.textContent.includes('Ainda não há mensagens')) {
+          emptyState.remove();
+      }
       
       // Scroll to the top of the wall smoothly
       muralWall.scrollTo({ top: 0, behavior: 'smooth' });
 
       // Reset form
       messageForm.reset();
+      
+      submitBtn.innerHTML = originalBtnHtml;
+      submitBtn.disabled = false;
     });
   }
 
   // Initial render
-  renderMessages();
+  loadMessages();
 
 
   // 4. Lightbox Modal
