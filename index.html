@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Optimization -->
+  <title>Obrigado, Monitor Angelo! — Homenagem de Despedida</title>
+  <meta name="description" content="Espaço de despedida, agradecimento e homenagem ao monitor de equitação infantil Angelo Joaquim, que parte para Abu Dhabi. Deixe a sua mensagem e recordações.">
+  <meta name="keywords" content="Angelo Joaquim, equitação, monitor infantil, Abu Dhabi, despedida, hipismo, picadeiro, cavalos, crianças, pónis">
+  <meta name="author" content="Alunos, Pais e Colegas do Monitor Angelo">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Obrigado, Monitor Angelo! — Homenagem de Despedida">
+  <meta property="og:description" content="Despedida e homenagem ao monitor de equitação infantil Angelo Joaquim. Deixe a sua mensagem antes da partida para Abu Dhabi!">
+  <meta property="og:image" content="assets/angelo1.webp">
+
+  <!-- Fonts & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <!-- YouTube Iframe Player API -->
+  <script src="https://www.youtube.com/iframe_api" async></script>
+</head>
+<body>
+
+  <!-- Welcome Splash Overlay -->
+  <div class="welcome-overlay" id="welcome-overlay">
+    <div class="welcome-content">
+      <div class="welcome-logo"><i class="fa-solid fa-horse"></i></div>
+      <h2>Obrigado, Monitor Angelo!</h2>
+      <span class="welcome-dates">Boa Viagem para Abu Dhabi</span>
+      <p>Seja bem-vindo a este espaço de carinho, recordações e despedida do monitor favorito das nossas crianças.</p>
+      <button class="btn btn-primary btn-enter" id="btn-enter-site" disabled style="opacity: 0.6; cursor: not-allowed;">
+        <i class="fa-solid fa-spinner fa-spin" id="loading-spinner"></i> &nbsp;<span id="btn-text">A preparar música...</span>
+      </button>
+      <span class="welcome-hint"><i class="fa-solid fa-music"></i> A música "Carta de Despedida" iniciará automaticamente por 1 minuto.</span>
+    </div>
+  </div>
+
+  <!-- Floating Header -->
+  <header id="main-header">
+    <div class="container header-container">
+      <a href="#" class="logo" id="header-logo">
+        <i class="fa-solid fa-horse"></i> Angelo <span>Joaquim</span>
+      </a>
+      <nav aria-label="Navegação Principal">
+        <ul class="nav-links">
+          <li><a href="#tributo" id="nav-link-tributo">Tributo</a></li>
+          <li><a href="#ensinamentos" id="nav-link-ensinamentos">Ensinamentos</a></li>
+          <li><a href="#galeria" id="nav-link-galeria">Galeria</a></li>
+          <li><a href="#mural" id="nav-link-mural">Mural de Lembranças</a></li>
+        </ul>
+      </nav>
+      
+      <!-- Music Control Toggle -->
+      <button class="spotify-toggle-btn" id="spotify-toggle-btn" aria-label="Reproduzir/Pausar música de fundo">
+        <i class="fa-solid fa-music"></i> Música
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="container">
+      <div class="hero-content">
+        <span class="hero-pretitle">Até Breve, Monitor!</span>
+        <h1 class="hero-title">Angelo Joaquim</h1>
+        <p class="hero-subtitle">"O monitor que ensinou as nossas crianças a voar a cavalo com paciência, segurança e muito carinho. Boa sorte na nova jornada em Abu Dhabi!"</p>
+        
+        <div class="hero-meta">
+          <div class="meta-item">
+            <span class="meta-label">Função</span>
+            <span class="meta-val">Monitor de Equitação Infantil</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Nova Aventura</span>
+            <span class="meta-val">Abu Dhabi, Emirados Árabes</span>
+          </div>
+        </div>
+
+        <div class="hero-btns">
+          <a href="#mural" class="btn btn-primary" id="btn-hero-mural"><i class="fa-solid fa-pen-nib"></i> &nbsp;Deixar Mensagem</a>
+          <a href="#galeria" class="btn btn-secondary" id="btn-hero-galeria">Ver Galeria</a>
+        </div>
+      </div>
+      
+      <div class="hero-image-container">
+        <div class="hero-image-frame">
+          <div class="hero-image-inner">
+            <img src="assets/angelo1.webp" alt="Foto de Angelo Joaquim, monitor de equitação" id="hero-img-main">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tribute Text Section -->
+  <section id="tributo" class="section-padding" aria-label="Tributo a Angelo Joaquim">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-title-wrapper">
+          <span class="section-subtitle">A nossa homenagem</span>
+          <h2 class="section-title">De Portugal para Abu Dhabi: Obrigado, Angelo!</h2>
+        </div>
+      </div>
+      
+      <div class="tributo-content">
+        <div class="tributo-text">
+          <p>
+            Monitor Angelo, nem sabemos como te agradecer por tudo o que nos ensinaste! Foste muito mais do que um professor, foste o nosso grande amigo no picadeiro. Com a tua paciência gigante e o teu sorriso sempre pronto, mostraste-nos como é divertido e mágico o mundo dos cavalos e dos pónis.
+          </p>
+          <p>
+            Contigo aprendemos a não ter medo, a montar com confiança e a respeitar muito os animais. Cada aula era uma aventura nova e fizeste com que todos nós nos sentíssemos corajosos e especiais. Nunca vamos esquecer as brincadeiras e as barreiras que saltámos juntos!
+          </p>
+          <p>
+            Saber que vais para Abu Dhabi deixa-nos com muitas saudades, mas achamos o máximo que vás ensinar meninos noutro país! Desejamos-te a maior sorte do mundo nesta tua nova aventura. Não te esqueças de nós, porque nós nunca nos vamos esquecer de ti. O picadeiro vai ficar mais vazio, mas seremos sempre os teus cavaleiros. Voa alto, Monitor Angelo!
+          </p>
+        </div>
+        
+        <div class="tributo-image-side" id="tributo-side-frame">
+          <img src="assets/angelo2.webp" alt="Angelo Joaquim junto de um cavalo" id="tributo-img-secondary">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ensinamentos / Teachings Section -->
+  <section id="ensinamentos" class="section-padding" style="background-color: var(--bg-secondary);" aria-label="Citações e Ensinamentos do Monitor">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-title-wrapper">
+          <span class="section-subtitle">Palavras de Sabedoria</span>
+          <h2 class="section-title">O que o Angelo nos Ensinou</h2>
+        </div>
+      </div>
+      
+      <div class="ensinamentos-grid">
+        <div class="quote-card">
+          <p class="quote-text">"A equitação não é sobre controlo físico ou força. É sobre ligação, cumplicidade e falar a mesma língua que o cavalo."</p>
+          <span class="quote-author">Angelo Joaquim</span>
+        </div>
+        
+        <div class="quote-card">
+          <p class="quote-text">"Cair do cavalo faz parte do percurso. O segredo é ter a coragem de nos levantarmos, bater o pó e voltar a montar com o mesmo sorriso."</p>
+          <span class="quote-author">Angelo Joaquim</span>
+        </div>
+        
+        <div class="quote-card">
+          <p class="quote-text">"Os cavalos não nos julgam. Eles são o espelho mais honesto da nossa própria alma. Se estiveres calmo, ele estará calmo."</p>
+          <span class="quote-author">Angelo Joaquim</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="galeria" class="section-padding" aria-label="Galeria de Fotos do Angelo">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-title-wrapper">
+          <span class="section-subtitle">Recordações em Imagens</span>
+          <h2 class="section-title">Momentos Partilhados</h2>
+        </div>
+      </div>
+      
+      <div class="gallery-grid">
+        <!-- Photo 1 -->
+        <div class="gallery-item" id="gallery-item-1">
+          <img src="assets/angelo1.webp" alt="Angelo Joaquim - Sorriso e Companheirismo">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title">O Sorriso no Picadeiro</h3>
+            <p class="gallery-desc">A alegria de guiar e ensinar todos os dias.</p>
+          </div>
+        </div>
+        
+        <!-- Photo 2 -->
+        <div class="gallery-item" id="gallery-item-2">
+          <img src="assets/angelo2.webp" alt="Angelo Joaquim - Ligação com o Cavalo">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title">A Ligação e Cumplicidade</h3>
+            <p class="gallery-desc">Sempre perto do cavalo, transmitindo calma e paz.</p>
+          </div>
+        </div>
+        
+        <!-- Photo 3 -->
+        <div class="gallery-item" id="gallery-item-3">
+          <img src="assets/angelo3.jpg" alt="Angelo Joaquim - A Paixão de Ensinar">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title">A Paixão de Ensinar</h3>
+            <p class="gallery-desc">O eterno monitor a acompanhar os seus alunos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Memory Wall (Mural) Section -->
+  <section id="mural" class="section-padding" style="background-color: var(--bg-secondary);" aria-label="Mural de Lembranças e Condolências">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-title-wrapper">
+          <span class="section-subtitle">Espaço de Partilha</span>
+          <h2 class="section-title">Mural de Recordações</h2>
+        </div>
+      </div>
+      
+      <div class="mural-container">
+        <!-- Form to leave a message -->
+        <div class="mural-form-card">
+          <h3>Deixe a sua Mensagem</h3>
+          <p>Partilhe uma memória, um agradecimento ou palavras de carinho em memória do monitor Angelo.</p>
+          
+          <form id="message-form">
+            <div class="form-group">
+              <label for="form-name" class="form-label">O seu Nome</label>
+              <input type="text" id="form-name" class="form-input" placeholder="Ex: Maria Antónia" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="form-relationship" class="form-label">Relação / Ligação</label>
+              <input type="text" id="form-relationship" class="form-input" placeholder="Ex: Aluna, Amiga, Colega" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="form-message" class="form-label">Mensagem de Homenagem</label>
+              <textarea id="form-message" class="form-input" placeholder="Escreva aqui as suas palavras de saudade..." required></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary btn-submit" id="btn-submit-message">
+              <i class="fa-solid fa-paper-plane"></i> &nbsp;Enviar Mensagem
+            </button>
+          </form>
+        </div>
+        
+        <!-- Message list (populated by JS) -->
+        <div class="mural-wall" id="mural-wall" aria-live="polite">
+          <!-- Messages will be injected here -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox Modal container -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visualização de Imagem Ampliada">
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightbox-close" aria-label="Fechar visualização"><i class="fa-solid fa-xmark"></i></button>
+      <img src="" alt="" class="lightbox-image" id="lightbox-image">
+      <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-logo">
+        <i class="fa-solid fa-horse"></i> Angelo <span>Joaquim</span>
+      </div>
+      <nav class="footer-nav" aria-label="Navegação do Rodapé">
+        <a href="#tributo">Tributo</a>
+        <a href="#ensinamentos">Ensinamentos</a>
+        <a href="#galeria">Galeria</a>
+        <a href="#mural">Mural</a>
+      </nav>
+      <div class="footer-copyright">
+        &copy; 2026 Homenagem a Angelo Joaquim. Para sempre no coração dos cavaleiros e amigos.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Audio Player Widget -->
+  <div class="spotify-widget-container" id="spotify-widget" role="complementary" aria-label="Reprodutor de Áudio">
+    <div class="spotify-widget-header">
+      <span><i class="fa-solid fa-music"></i> Música de Despedida</span>
+      <button id="close-widget-btn" aria-label="Minimizar leitor"><i class="fa-solid fa-chevron-down"></i></button>
+    </div>
+    <div class="audio-widget-body">
+      <div class="audio-widget-info">
+        <span class="audio-widget-title">Carta de Despedida</span>
+        <span class="audio-widget-artist">Os Descendentes</span>
+      </div>
+      <div class="audio-widget-controls">
+        <button id="widget-play-btn" class="widget-control-btn" aria-label="Reproduzir/Pausar"><i class="fa-solid fa-play"></i></button>
+        <div class="visualizer-container" id="visualizer">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hidden YouTube Player Container (Larger to prevent browser throttling, but hidden via opacity) -->
+  <div id="youtube-player-container" style="position: absolute; top: -500px; left: -500px; width: 200px; height: 200px; opacity: 0.01; pointer-events: none; z-index: -999; overflow: hidden;"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
