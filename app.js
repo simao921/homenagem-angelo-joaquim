@@ -1,6 +1,5 @@
 let ytPlayer = null;
 let hasUserEntered = false;
-let musicDurationTimeout = null;
 
 // Global callback for YouTube Iframe API
 window.onYouTubeIframeAPIReady = () => {
@@ -13,8 +12,7 @@ window.onYouTubeIframeAPIReady = () => {
       'controls': 0,
       'disablekb': 1,
       'fs': 0,
-      'rel': 0,
-      'start': 56
+      'rel': 0
     },
     events: {
       'onReady': () => {
@@ -29,6 +27,15 @@ window.onYouTubeIframeAPIReady = () => {
           if (btnText) btnText.innerText = 'Entrar e Recordar';
         }
         if (hasUserEntered) startMusic();
+      },
+      'onStateChange': (event) => {
+        if (event.data === YT.PlayerState.ENDED) {
+          const visualizer = document.getElementById('visualizer');
+          const widgetPlayBtn = document.getElementById('widget-play-btn');
+          if (visualizer) visualizer.classList.remove('active');
+          if (widgetPlayBtn) widgetPlayBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
+          showMusicFinishedToast();
+        }
       },
       'onError': (e) => {
         console.error("YouTube Player Error", e);
@@ -50,25 +57,18 @@ window.onYouTubeIframeAPIReady = () => {
 function startMusic() {
   if (ytPlayer && ytPlayer.playVideo) {
     ytPlayer.playVideo();
-    
+
     const visualizer = document.getElementById('visualizer');
     const widgetPlayBtn = document.getElementById('widget-play-btn');
     if (visualizer) visualizer.classList.add('active');
     if (widgetPlayBtn) widgetPlayBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
-    
-    musicDurationTimeout = setTimeout(() => {
-      ytPlayer.pauseVideo();
-      if (visualizer) visualizer.classList.remove('active');
-      if (widgetPlayBtn) widgetPlayBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
-      showMusicFinishedToast();
-    }, 60000);
   }
 }
 
 function showMusicFinishedToast() {
   const toast = document.createElement('div');
   toast.className = 'music-toast';
-  toast.innerHTML = '<i class="fa-solid fa-circle-info"></i> Música concluída (limite de 1 min)';
+  toast.innerHTML = '<i class="fa-solid fa-circle-info"></i> Música concluída';
   document.body.appendChild(toast);
   
   // Add active class for sliding/fade-in
@@ -112,6 +112,9 @@ document.addEventListener('DOMContentLoaded', () => {
           widgetPlayBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
           if (visualizer) visualizer.classList.remove('active');
         } else {
+          if (state === YT.PlayerState.ENDED) {
+            ytPlayer.seekTo(0);
+          }
           ytPlayer.playVideo();
           widgetPlayBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
           if (visualizer) visualizer.classList.add('active');
