@@ -552,6 +552,14 @@ header.scrolled {
   background-color: var(--accent-gold);
 }
 
+.keep-together {
+  white-space: nowrap;
+}
+
+.mobile-only-break {
+  display: none;
+}
+
 /* About / Story */
 .tributo-content {
   display: grid;
@@ -1119,6 +1127,10 @@ footer {
     grid-template-columns: repeat(2, 1fr);
     max-width: 420px;
     gap: 0.75rem;
+  }
+
+  .mobile-only-break {
+    display: block;
   }
 }
 
