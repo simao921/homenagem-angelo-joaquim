@@ -1,62 +1,44 @@
 <!DOCTYPE html>
 <html lang="pt-PT">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- SEO Optimization -->
-  <title>Mensagem de despedida</title>
-  <meta name="description" content="Seja bem-vindo a este espaço de carinho e recordações, dedicado ao Professor Ângelo, que marcou a vida de todos nós pela sua amizade, dedicação e alegria contagiante.❤️✨">
-  <meta name="keywords" content="Ângelo Joaquim, equitação, instrutor infantil, Abu Dhabi, despedida, hipismo, picadeiro, cavalos, crianças, pónis">
-  <meta name="author" content="Alunos, Pais e Colegas do Professor Ângelo">
-  
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Mensagem de despedida">
-  <meta property="og:description" content="Seja bem-vindo a este espaço de carinho e recordações, dedicado ao Professor Ângelo, que marcou a vida de todos nós pela sua amizade, dedicação e alegria contagiante.❤️✨">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Mensagem de despedida">
-  <meta name="twitter:description" content="Seja bem-vindo a este espaço de carinho e recordações, dedicado ao Professor Ângelo, que marcou a vida de todos nós pela sua amizade, dedicação e alegria contagiante.❤️✨">
+      <div class="gallery-grid">
 
-  <!-- Fonts & Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
-  <!-- YouTube Iframe Player API -->
-  <script src="https://www.youtube.com/iframe_api" async></script>
-  <!-- Supabase JS SDK -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-</head>
-<body>
+        <!-- Photo 1 -->
+        <div class="gallery-item" id="gallery-item-1">
+          <img src="https://www.image2url.com/r2/default/images/1780998710257-50645188-0f22-46f3-a54d-28c15abb2cbb.jpg" alt="Ângelo Joaquim - Sorriso e Companheirismo">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title">O Sorriso no Picadeiro</h3>
+            <p class="gallery-desc">A alegria de guiar e ensinar todos os dias.</p>
+          </div>
+        </div>
 
-  <!-- Welcome Splash Overlay -->
-  <div class="welcome-overlay" id="welcome-overlay">
-    <div class="welcome-content">
-      <div class="welcome-logo"><i class="fa-solid fa-horse"></i></div>
-      <h2>Obrigado, Professor Ângelo!</h2>
-      <span class="welcome-dates">Boa Viagem para Abu Dhabi</span>
-      <p>Seja bem-vindo a este espaço de carinho e recordações, dedicado ao Professor Ângelo, que marcou a vida de todos nós pela sua amizade, dedicação e alegria contagiante.❤️✨</p>
-      <button class="btn btn-primary btn-enter" id="btn-enter-site" disabled style="opacity: 0.6; cursor: not-allowed;">
-        <i class="fa-solid fa-spinner fa-spin" id="loading-spinner"></i> &nbsp;<span id="btn-text">A preparar música...</span>
-      </button>
-      <span class="welcome-hint"><i class="fa-solid fa-music"></i> A música "Carta de Despedida" iniciará automaticamente por 1 minuto.</span>
-    </div>
-  </div>
+        <!-- Photo 2 -->
+        <div class="gallery-item" id="gallery-item-2">
+          <img src="https://www.image2url.com/r2/default/images/1780999000910-8da304dd-ac98-4b37-b769-b8f544f7940e.jpg" alt="Ângelo Joaquim - Ligação com o Cavalo">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title">A Ligação e Cumplicidade</h3>
+            <p class="gallery-desc">Sempre perto do cavalo, transmitindo calma e paz.</p>
+          </div>
+        </div>
 
-  <!-- Floating Header -->
-  <header id="main-header">
-    <div class="container header-container">
-      <a href="#" class="logo" id="header-logo">
-        <i class="fa-solid fa-horse"></i> Ângelo <span>Joaquim</span>
-      </a>
-      <nav aria-label="Navegação Principal">
-        <ul class="nav-links">
-          <li><a href="#tributo" id="nav-link-tributo">Tributo</a></li>
-          <li><a href="#galeria" id="nav-link-galeria">Galeria</a></li>
-          <li><a href="#mural" id="nav-link-mural">Mural</a></li>
-        </ul>
-      </nav>
-      
-      <!-- Music Control Toggle -->
+        <!-- Photo 3 -->
+        <div class="gallery-item" id="gallery-item-3">
+          <img src="https://www.image2url.com/r2/default/images/1780998639275-b442b97f-e023-4c06-b761-9ac6668d6445.jpg" alt="Ângelo Joaquim junto de um cavalo">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title">Lembrança</h3>
+            <p class="gallery-desc">Momentos partilhados.</p>
+          </div>
+        </div>
+
+        <!-- Photo 4 -->
+        <div class="gallery-item" id="gallery-item-4">
+          <img src="https://www.image2url.com/r2/default/images/1781100798362-4cb3e2d2-c028-4005-aed4-3350b87fb193.jpeg" alt="Ângelo Joaquim - Momento especial">
+          <div class="gallery-overlay">
+            <h3 class="gallery-title">Lembrança</h3>
+            <p class="gallery-desc">Carinho e gratidão.</p>
+          </div>
+        </div>
+      </div>
       <button class="spotify-toggle-btn" id="spotify-toggle-btn" aria-label="Reproduzir/Pausar música de fundo">
         <i class="fa-solid fa-music"></i> Música
       </button>
@@ -92,7 +74,7 @@
       <div class="hero-image-container">
         <div class="hero-image-frame">
           <div class="hero-image-inner">
-            <img src="https://www.image2url.com/r2/default/images/1780998639275-b442b97f-e023-4c06-b761-9ac6668d6445.jpg" alt="Foto de Ângelo Joaquim, instrutor de equitação" id="hero-img-main">
+              <img src="https://www.image2url.com/r2/default/images/1780998594383-4588e41b-5154-43fb-9e7c-8424dae0e7f0.jpg" alt="Foto de Ângelo Joaquim, instrutor de equitação" id="hero-img-main">
           </div>
         </div>
       </div>
@@ -123,7 +105,7 @@
         </div>
         
         <div class="tributo-image-side" id="tributo-side-frame">
-          <img src="https://www.image2url.com/r2/default/images/1780998639275-b442b97f-e023-4c06-b761-9ac6668d6445.jpg" alt="Ângelo Joaquim junto de um cavalo" id="tributo-img-secondary">
+           <img src="https://www.image2url.com/r2/default/images/1781100824152-a472d738-7039-4670-a4dd-d79bfbfa1238.jpeg" alt="Ângelo Joaquim junto de um cavalo" id="tributo-img-secondary">
         </div>
       </div>
     </div>
