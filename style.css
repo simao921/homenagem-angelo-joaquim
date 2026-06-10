@@ -585,7 +585,7 @@ header.scrolled {
   border-radius: 20px;
   overflow: hidden;
   border: 1px solid var(--border-color);
-  aspect-ratio: 4/3;
+  aspect-ratio: 3/4;
   box-shadow: var(--shadow-lg);
 }
 
